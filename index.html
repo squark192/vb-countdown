@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown to May 23, 2025</title>
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --background: #f8fafc;
+      --text: #1e293b;
+      --text-light: #64748b;
+      --card: #ffffff;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-dark);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--text-light);
+      margin-bottom: 3rem;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .profile-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      animation: fadeIn 1.8s ease-in-out;
+    }
+
+    .profile-picture {
+      background-color: var(--card);
+      border-radius: 50%;
+      box-shadow: 0 4px 6px var(--shadow);
+      padding: 0.5rem;
+      width: 120px;
+      height: 120px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .profile-picture:hover {
+      transform: translateY(-5px);
+    }
+
+    .profile-picture img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .profile-plus {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .countdown-item {
+      background-color: var(--card);
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 6px var(--shadow);
+      padding: 1.5rem;
+      min-width: 120px;
+      animation: slideUp 0.5s ease-out;
+      transition: transform 0.3s ease;
+    }
+
+    .countdown-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .countdown-value {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .countdown-label {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-light);
+    }
+
+    .pulse {
+      animation: pulse 1s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { 
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to { 
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1rem;
+      }
+
+      .profile-container {
+        gap: 1rem;
+      }
+      
+      .profile-picture {
+        width: 90px;
+        height: 90px;
+      }
+      
+      .profile-plus {
+        font-size: 2rem;
+      }
+      
+      .countdown-item {
+        min-width: 100px;
+        padding: 1rem;
+      }
+      
+      .countdown-value {
+        font-size: 2.5rem;
+      }
+    }
+
+    .footer {
+      margin-top: 4rem;
+      font-size: 0.875rem;
+      color: var(--text-light);
+      animation: fadeIn 2s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>The Big Event is Coming</h1>
+    <h2>Join us on May 23, 2025 at 18:00 GMT-3</h2>
+    
+    <div class="profile-container">
+      <div class="profile-picture">
+        <img src="/placeholder.svg?height=150&width=150" alt="Profile 1" />
+      </div>
+      <div class="profile-plus">+</div>
+      <div class="profile-picture">
+        <img src="/placeholder.svg?height=150&width=150" alt="Profile 2" />
+      </div>
+    </div>
+    
+    <div class="countdown">
+      <div class="countdown-item" id="days-container">
+        <span class="countdown-value" id="days">00</span>
+        <span class="countdown-label">Days</span>
+      </div>
+      
+      <div class="countdown-item" id="hours-container">
+        <span class="countdown-value" id="hours">00</span>
+        <span class="countdown-label">Hours</span>
+      </div>
+      
+      <div class="countdown-item" id="minutes-container">
+        <span class="countdown-value" id="minutes">00</span>
+        <span class="countdown-label">Minutes</span>
+      </div>
+      
+      <div class="countdown-item" id="seconds-container">
+        <span class="countdown-value" id="seconds">00</span>
+        <span class="countdown-label">Seconds</span>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <p>Don't miss out on this special moment!</p>
+    </div>
+  </div>
+
+  <script>
+    // Set the target date: May 23, 2025 at 18:00 GMT-3
+    const targetDate = new Date('2025-05-23T18:00:00-03:00');
+    
+    // Elements
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+    
+    const daysContainer = document.getElementById('days-container');
+    const hoursContainer = document.getElementById('hours-container');
+    const minutesContainer = document.getElementById('minutes-container');
+    const secondsContainer = document.getElementById('seconds-container');
+    
+    // Previous values to track changes
+    let prevDays, prevHours, prevMinutes, prevSeconds;
+    
+    // Update countdown function
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+      
+      // If the target date has passed
+      if (diff <= 0) {
+        daysEl.innerHTML = '00';
+        hoursEl.innerHTML = '00';
+        minutesEl.innerHTML = '00';
+        secondsEl.innerHTML = '00';
+        return;
+      }
+      
+      // Calculate time units
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      
+      // Format with leading zeros
+      const formattedDays = String(days).padStart(2, '0');
+      const formattedHours = String(hours).padStart(2, '0');
+      const formattedMinutes = String(minutes).padStart(2, '0');
+      const formattedSeconds = String(seconds).padStart(2, '0');
+      
+      // Update the DOM
+      daysEl.innerHTML = formattedDays;
+      hoursEl.innerHTML = formattedHours;
+      minutesEl.innerHTML = formattedMinutes;
+      secondsEl.innerHTML = formattedSeconds;
+      
+      // Add animation when values change
+      if (prevDays !== formattedDays) {
+        animateElement(daysContainer);
+        prevDays = formattedDays;
+      }
+      
+      if (prevHours !== formattedHours) {
+        animateElement(hoursContainer);
+        prevHours = formattedHours;
+      }
+      
+      if (prevMinutes !== formattedMinutes) {
+        animateElement(minutesContainer);
+        prevMinutes = formattedMinutes;
+      }
+      
+      if (prevSeconds !== formattedSeconds) {
+        animateElement(secondsContainer);
+        prevSeconds = formattedSeconds;
+      }
+    }
+    
+    // Animation function
+    function animateElement(element) {
+      element.classList.remove('pulse');
+      // Trigger reflow
+      void element.offsetWidth;
+      element.classList.add('pulse');
+    }
+    
+    // Initial call
+    updateCountdown();
+    
+    // Update every second
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
