@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Countdown to May 23, 2025</title>
+  <title>Countdown to Vally Browne</title>
   <style>
     :root {
       --primary: #6366f1;
@@ -97,6 +97,21 @@
       justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
+    }
+    
+    @media (max-width: 600px) {
+      .countdown {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 1rem;
+        width: 100%;
+      }
+      
+      .countdown-item {
+        min-width: 0;
+        width: 100%;
+      }
     }
 
     .countdown-item {
@@ -202,8 +217,8 @@
 </head>
 <body>
   <div class="container">
-    <h1>The Big Event is Coming</h1>
-    <h2>Join us on May 23, 2025 at 18:00 GMT-3</h2>
+    <h1>The Countdown to Vally Browne</h1>
+    <h2><em>TwentyThreeFive.</em> Giggity!</h2>
     
     <div class="profile-container">
       <div class="profile-picture">
@@ -238,7 +253,7 @@
     </div>
     
     <div class="footer">
-      <p>Don't miss out on this special moment!</p>
+      <p>IRLY</p>
     </div>
   </div>
 
